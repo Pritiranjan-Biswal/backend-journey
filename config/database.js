@@ -2,7 +2,7 @@ const mongoose =  require("mongoose");
 
 require("dotenv").config();
 const dbConnect=() => {
-    mongoose.connect(process.env.DATANASE_URL)
+    mongoose.connect(process.env.DATABASE_URL)
     .then(()=>console.log("DB ka connection successful"))
     .catch((error) => {
         console.log("Issue in DB connection")
