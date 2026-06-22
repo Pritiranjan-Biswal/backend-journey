@@ -21,10 +21,10 @@ connectWithDb();
 //start the server
 
 app.listen(PORT, ()=> {
-    console.log(`App is started at ${PORT}`);
+    console.log(`App is started at ${PORT}`)
     
 })
 
 app.get("/" ,(req, res) => {
-    req.send(<h3>This is my home page </h3>)
+    res.send("<h3>This is my home page </h3>")
 })
