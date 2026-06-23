@@ -6,14 +6,14 @@ const router= express.Router();
 
 
 const {dummyLink} = require("../controllers/likeController")
-
+const {createComment}= require("../controllers/commentController");
 
 
 
 //mapping 
 
 router.get("/dummyroute", dummyLink)
-
+router.post("/comments/create", createComment);
 
 //export
 module.exports= router;
