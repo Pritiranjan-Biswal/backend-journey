@@ -42,4 +42,27 @@ exports.likePost = async (req, res) => {
             message: error.message
         });
     }
-};
+}
+
+    exports.unlikePost = async(req, res) => {
+        try{
+            const {post, like} = req.body;
+            const deletedLike=await Like.findOneAndDelete({post:post,_id:like})
+
+            const updatedPost= await Post.findByIdAndDelete(post, {$pull:{like:deletedLike._id}}, {new:true})
+            res.json({
+                post:updatedPost,
+                
+            })
+        }
+        catch(error) {
+            return res.status(400).json({
+            success: false,
+            error: "Error while creating the like",
+            message: error.message
+        });
+
+        }
+    }
+        
+
